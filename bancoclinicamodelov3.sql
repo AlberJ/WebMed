@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 09-Jan-2018 às 01:29
+-- Generation Time: 09-Jan-2018 às 01:45
 -- Versão do servidor: 5.7.19-log
 -- PHP Version: 7.1.9
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `consulta`;
 CREATE TABLE IF NOT EXISTS `consulta` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `dataConsulta` date NOT NULL,
   `idPaciente` int(11) NOT NULL,
   `idMedico` int(11) NOT NULL,
@@ -85,7 +85,14 @@ CREATE TABLE IF NOT EXISTS `medico` (
   `DataNasc` date DEFAULT NULL,
   `Especialidade` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `medico`
+--
+
+INSERT INTO `medico` (`id`, `CRM`, `Nome`, `Telefone`, `DataNasc`, `Especialidade`) VALUES
+(1, 1, 'Dr. House ', '32315013', '1980-05-08', 'Clinico Geral');
 
 -- --------------------------------------------------------
 
@@ -103,7 +110,14 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `TipoSanguineo` varchar(4) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `paciente`
+--
+
+INSERT INTO `paciente` (`CPF`, `Nome`, `Convenio`, `Telefone`, `DataNasc`, `TipoSanguineo`, `id`) VALUES
+('07272344474', 'Gilberto Neto', 'SUS', '8332315013', '1991-11-26', NULL, 1);
 
 -- --------------------------------------------------------
 
